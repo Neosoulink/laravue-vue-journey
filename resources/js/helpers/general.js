@@ -13,7 +13,17 @@ export function initialize(store, router) {
 		}
 	});
 
-	axios.interceptors.request.use(null, error => {
+	axios.interceptors.request.use(config => {
+		return config;
+	}, error => {
+		// Do something with request error
+		return Promise.reject(error);
+	});
+
+	axios.interceptors.response.use(response => {
+		return response;
+	}, error => {
+		console.log('efefdd20');
 		if (error.response.status == 401) {
 			store.commit('LOGOUT');
 			router.push('/login');
@@ -21,7 +31,8 @@ export function initialize(store, router) {
 		return Promise.reject(error);
 	});
 
-	if (store.state.currentUser){
-		axios.defaults.headers.common['Authorization'] = `Bearer ${store.state.currentUser.token}`;
+	if (store.getters.currentUser) {
+		axios.defaults.headers.common['Authorization'] = `Bearer ${store.getters.currentUser.token}`;
 	}
+
 }

@@ -81958,6 +81958,7 @@ function login(credential) {
     axios.post('/api/auth/login', credential).then(function (res) {
       resolve(res.data);
       console.log(res);
+      axios.defaults.headers.common['Authorization'] = "Bearer ".concat(res.data.access_token);
     })["catch"](function (err) {
       rej('Wrong email or password');
     });
@@ -82000,7 +82001,17 @@ function initialize(store, router) {
       next();
     }
   });
-  axios.interceptors.request.use(null, function (error) {
+  axios.interceptors.request.use(function (config) {
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
+  axios.interceptors.response.use(function (response) {
+    return response;
+  }, function (error) {
+    console.log('efefdd20');
+
     if (error.response.status == 401) {
       store.commit('LOGOUT');
       router.push('/login');
@@ -82009,8 +82020,8 @@ function initialize(store, router) {
     return Promise.reject(error);
   });
 
-  if (store.state.currentUser) {
-    axios.defaults.headers.common['Authorization'] = "Bearer ".concat(store.state.currentUser.token);
+  if (store.getters.currentUser) {
+    axios.defaults.headers.common['Authorization'] = "Bearer ".concat(store.getters.currentUser.token);
   }
 }
 
