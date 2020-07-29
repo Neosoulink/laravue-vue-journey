@@ -9,7 +9,7 @@ export default {
 	name: 'Home',
 	computed: {
 		sayWelcome() {
-			return this.$store.getters.welcome;
+			return 'Hello ;-)'
 		}
 	}
 }

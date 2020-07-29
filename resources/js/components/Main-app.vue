@@ -1,6 +1,6 @@
 <template>
 	<div id="main">
-		<Header />
+		<Header class="mb-5"/>
 		<div class="content">
 			<router-view></router-view>
 		</div>
