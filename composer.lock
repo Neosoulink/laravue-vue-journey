@@ -2570,6 +2570,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/error-handler/zipball/4fd4a377f7b7ec7c3f3b40346a1411e0a83f9d40",
                 "reference": "4fd4a377f7b7ec7c3f3b40346a1411e0a83f9d40",
+
                 "shasum": ""
             },
             "require": {
@@ -2636,6 +2637,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/4f9760f8074978ad82e2ce854dff79a71fe45367",
                 "reference": "4f9760f8074978ad82e2ce854dff79a71fe45367",
+
                 "shasum": ""
             },
             "require": {
@@ -2998,6 +3000,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/831b51e9370ece0febd0950dd819c63f996721c7",
                 "reference": "831b51e9370ece0febd0950dd819c63f996721c7",
+
                 "shasum": ""
             },
             "require": {
